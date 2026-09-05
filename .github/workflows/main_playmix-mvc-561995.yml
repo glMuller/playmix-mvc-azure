@@ -21,6 +21,15 @@ jobs:
       with:
         java-version: '17'
 
+    - name: Debug env vars
+      run: |
+        echo "URL length: ${#SPRING_DATASOURCE_URL}"
+        echo "USERNAME length: ${#SPRING_DATASOURCE_USERNAME}"
+        echo "PASSWORD length: ${#SPRING_DATASOURCE_PASSWORD}"
+      env:
+        SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
+        SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+        SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
     - name: Build with Maven
       run: mvn clean install
       env:
