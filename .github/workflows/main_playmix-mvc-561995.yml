@@ -33,7 +33,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with: 
-        app-name: 'playmix-mvc-561995'
+        app-name: 'playmix-mvc-rm561995'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d46e73716d1a40d6bc490d54ebdc6951 }}
         package: '${{ github.workspace }}/target/*.jar'
